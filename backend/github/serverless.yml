@@ -28,3 +28,9 @@ functions:
       - http:
           method: get
           path: hello
+  getUserRepositories:
+    handler: handlers/user.getRepositories
+    events:
+      - http:
+          method: get
+          path: user/repos
