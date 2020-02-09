@@ -14,9 +14,9 @@ jobs:
     - name: Validate
       env:
         GITHUB_API_KEY: ${ secret.GITHUB_API_KEY }
-        test-env:  qwe
+        test_env:  qwe
       working-directory: ./backend/github
       run: |
-        echo $qwe
+        echo $test_env
         npm ci
         npm run test
