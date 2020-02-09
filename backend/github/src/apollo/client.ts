@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import {ApolloClient} from 'apollo-client';
 import {HttpLink, InMemoryCache} from 'apollo-boost';
-import * as config from '../../apollo.config'
+import * as config from '../../apollo.config.js'
 
 export const apolloClient = new ApolloClient({
     cache: new InMemoryCache(),

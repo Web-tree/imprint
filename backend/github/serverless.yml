@@ -20,17 +20,25 @@ provider:
     minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    GITHUB_API_KEY: ${env:GITHUB_API_KEY}
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          method: get
-          path: hello
+#  hello:
+#    handler: handler.hello
+#    events:
+#      - http:
+#          method: get
+#          path: hello
   getUserRepositories:
-    handler: handlers/user.getRepositories
+    handler: src/handlers/user.getRepositories
     events:
       - http:
           method: get
-          path: user/repos
+          path: user/{login}/repos
+  getUserImprint:
+    handler: src/handlers/user.getUserImprint
+    events:
+      - http:
+          method: get
+          path: user/{login}/imprint
+          cors: true
