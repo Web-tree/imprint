@@ -14,9 +14,7 @@ jobs:
     - name: Validate
       env:
         GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
-        test_env:  ${{ secrets.aaa }}
       working-directory: ./backend/github
       run: |
-        echo $test_env
         npm ci
         npm run test
