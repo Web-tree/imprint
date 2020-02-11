@@ -1,4 +1,4 @@
-name: CI
+name: backend-github-validate
 
 on: [push]
 
