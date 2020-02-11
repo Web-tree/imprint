@@ -13,8 +13,8 @@ jobs:
         node-version: 12.x
     - name: Validate
       env:
-        GITHUB_API_KEY: ${ secret.GITHUB_API_KEY }
-        test_env:  ${ secret.aaa }
+        GITHUB_API_KEY: ${{ secret.GITHUB_API_KEY }}
+        test_env:  ${{ secret.aaa }}
       working-directory: ./backend/github
       run: |
         echo $test_env
