@@ -6,14 +6,9 @@ describe('User Repository', () => {
         const userRepository = new UserRepository();
         userRepository
             .getUserRepositories('max-levitskiy')
-            // .getUserRepositories('cicd-webtree')
             .then(value => {
-                console.log(value.data.user.repositories.nodes);
+                expect(value.data.user.repositories.nodes.values()).toBeDefined();
                 done()
-            })
-            .catch(reason => {
-                console.log(reason);
-                fail()
             })
     });
 });
