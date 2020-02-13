@@ -1,0 +1,13 @@
+<div *ngIf="authService.isLoggedIn()">
+  <button [mat-menu-trigger-for]="profileLogoMenu" class="profile-button" color="warn" mat-fab>
+    {{shortName}}
+  </button>
+  <mat-menu #profileLogoMenu='matMenu' class="profile-logo-menu">
+    <button disabled mat-menu-item>{{user.username}}</button>
+    <button (click)="authService.logout()" mat-menu-item>Logout</button>
+  </mat-menu>
+</div>
+<div *ngIf="!authService.isLoggedIn()">
+  <a class="login-button" color="warn" href="{{loginUrl}}" mat-fab>Login</a>
+  <a class="register-button" color="accent" href="{{registerUrl}}" mat-fab>Register</a>
+</div>

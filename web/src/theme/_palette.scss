@@ -1,0 +1,45 @@
+@import '~@angular/material/theming';
+
+$wt-green: (
+  50 : #f4f9ef,
+  100 : #e4f1d7,
+  200 : #d3e8bd,
+  300 : #c1dfa2,
+  400 : #b3d88e,
+  500 : #a6d17a,
+  600 : #9ecc72,
+  700 : #95c667,
+  800 : #8bc05d,
+  900 : #7bb54a,
+  A100 : #ffffff,
+  A200 : #ecffdc,
+  A400 : #cfffa9,
+  A700 : #c1ff90,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$wt-primary: mat-palette($wt-green, 700, 300, 900);
+$wt-accent: mat-palette($wt-green);
+$wt-warn: mat-palette($wt-green, A200);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$wt: mat-light-theme(
+    $wt-primary,
+    $wt-accent,
+    $wt-warn
+);
