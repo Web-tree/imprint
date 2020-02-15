@@ -1,5 +1,7 @@
 <mat-list>
   <mat-list-item *ngFor="let entity of imprintMap | keyvalue">
-    {{entity.key}} - {{entity.value | async | json}}
+    <img class="avatar" src="https://github.com/{{entity.key}}.png?size=56" width="56" height="56" alt=""/>
+    <span matBadge="{{entity.value | async | json}}" matBadgeOverlap="false">{{entity.key}}</span>
+
   </mat-list-item>
 </mat-list>
