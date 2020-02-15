@@ -18,7 +18,7 @@ jobs:
         node-version: '12.x'
     - name: Npm ci & build
       working-directory: ./web
-    - run: | 
+      run: | 
         npm ci
         npm run build:prod
 
