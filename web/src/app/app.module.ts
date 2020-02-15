@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { UserListComponent } from './user/user-list/user-list.component';
 import {ImprintService} from './_services/imprint.service';
 import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatMenuModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule
   ],
   providers: [
     TokenService,
