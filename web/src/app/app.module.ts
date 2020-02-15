@@ -14,12 +14,16 @@ import {TokenService} from './_services/token.service';
 import {AuthService} from './_services/auth.service';
 import {AlertService} from './_services/alert.service';
 import {MatButtonModule} from '@angular/material/button';
+import { UserListComponent } from './user/user-list/user-list.component';
+import {ImprintService} from './_services/imprint.service';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileLogoComponent,
-    RootTeamPageComponent
+    RootTeamPageComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,12 +33,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatCardModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
   providers: [
     TokenService,
     AuthService,
-    AlertService
+    AlertService,
+    ImprintService
   ],
   bootstrap: [AppComponent]
 })

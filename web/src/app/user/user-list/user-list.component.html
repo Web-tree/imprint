@@ -1,0 +1,5 @@
+<mat-list>
+  <mat-list-item *ngFor="let entity of imprintMap | keyvalue">
+    {{entity.key}} - {{entity.value | async | json}}
+  </mat-list-item>
+</mat-list>

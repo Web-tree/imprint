@@ -28,3 +28,4 @@ functions:
       - http:
           method: get
           path: top
+          cors: true

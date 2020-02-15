@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./root-team-page.component.scss']
 })
 export class RootTeamPageComponent implements OnInit {
+  usernames: string[] = [
+    'max-levitskiy',
+    'Nadiine',
+    'DePr',
+    'UdjinSkobelev',
+    'GenovaEmpera',
+  ];
 
   constructor() { }
 
