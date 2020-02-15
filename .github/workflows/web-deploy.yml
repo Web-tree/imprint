@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - master
-    - webdeploy
 
 jobs:
   web-deploy:
@@ -18,7 +17,7 @@ jobs:
         node-version: '12.x'
     - name: Npm ci & build
       working-directory: ./web
-      run: | 
+      run: |
         npm ci
         npm run build:prod
 
