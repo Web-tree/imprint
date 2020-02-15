@@ -10,6 +10,9 @@ export const getRepositories: APIGatewayProxyHandler = (event, _context) => {
         .then(result => {
             return {
                 statusCode: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
                 body: JSON.stringify(result.data)
             };
         });
@@ -19,6 +22,9 @@ export const getUserImprint: APIGatewayProxyHandler = (event, _context) => {
     return new UserService(userRepository).getImprint(login).then(value => {
         return {
             statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
             body: JSON.stringify(value)
         };
     });

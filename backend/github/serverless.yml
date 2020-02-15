@@ -23,18 +23,13 @@ provider:
     GITHUB_API_KEY: ${env:GITHUB_API_KEY}
 
 functions:
-#  hello:
-#    handler: handler.hello
-#    events:
-#      - http:
-#          method: get
-#          path: hello
   getUserRepositories:
     handler: src/handlers/user.getRepositories
     events:
       - http:
           method: get
           path: user/{login}/repos
+          cors: true
   getUserImprint:
     handler: src/handlers/user.getUserImprint
     events:

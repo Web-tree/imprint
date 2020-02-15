@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   authUrl: 'http://localhost:3000',
   authUrlBack: 'http://localhost:3000',
+  githubBackUrl: 'https://3ebo5uxx6d.execute-api.us-east-1.amazonaws.com/dev'
 };
 
 /*
