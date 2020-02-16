@@ -4,7 +4,7 @@ export const GetUserRepositories = gql`
 query UserRepositories($login: String!) {
   user(login: $login) {
     id
-    repositories(first: 100) {
+    repositoriesContributedTo(first: 100) {
       totalCount
       nodes {
         nameWithOwner
