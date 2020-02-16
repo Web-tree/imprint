@@ -6,7 +6,7 @@
 // GraphQL query operation: UserRepositories
 // ====================================================
 
-export interface UserRepositories_user_repositories_nodes_stargazers {
+export interface UserRepositories_user_repositoriesContributedTo_nodes_stargazers {
   __typename: "StargazerConnection";
   /**
    * Identifies the total count of items in the connection.
@@ -14,7 +14,7 @@ export interface UserRepositories_user_repositories_nodes_stargazers {
   totalCount: number;
 }
 
-export interface UserRepositories_user_repositories_nodes_watchers {
+export interface UserRepositories_user_repositoriesContributedTo_nodes_watchers {
   __typename: "UserConnection";
   /**
    * Identifies the total count of items in the connection.
@@ -22,7 +22,7 @@ export interface UserRepositories_user_repositories_nodes_watchers {
   totalCount: number;
 }
 
-export interface UserRepositories_user_repositories_nodes {
+export interface UserRepositories_user_repositoriesContributedTo_nodes {
   __typename: "Repository";
   /**
    * The repository's name with owner.
@@ -35,18 +35,18 @@ export interface UserRepositories_user_repositories_nodes {
   /**
    * A list of users who have starred this starrable.
    */
-  stargazers: UserRepositories_user_repositories_nodes_stargazers;
+  stargazers: UserRepositories_user_repositoriesContributedTo_nodes_stargazers;
   /**
    * A list of users watching the repository.
    */
-  watchers: UserRepositories_user_repositories_nodes_watchers;
+  watchers: UserRepositories_user_repositoriesContributedTo_nodes_watchers;
   /**
    * Identifies if the repository is a fork.
    */
   isFork: boolean;
 }
 
-export interface UserRepositories_user_repositories {
+export interface UserRepositories_user_repositoriesContributedTo {
   __typename: "RepositoryConnection";
   /**
    * Identifies the total count of items in the connection.
@@ -55,16 +55,16 @@ export interface UserRepositories_user_repositories {
   /**
    * A list of nodes.
    */
-  nodes: (UserRepositories_user_repositories_nodes | null)[] | null;
+  nodes: (UserRepositories_user_repositoriesContributedTo_nodes | null)[] | null;
 }
 
 export interface UserRepositories_user {
   __typename: "User";
   id: string;
   /**
-   * A list of repositories that the user owns.
+   * A list of repositories that the user recently contributed to.
    */
-  repositories: UserRepositories_user_repositories;
+  repositoriesContributedTo: UserRepositories_user_repositoriesContributedTo;
 }
 
 export interface UserRepositories {
