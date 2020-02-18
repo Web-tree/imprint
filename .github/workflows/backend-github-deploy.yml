@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - backend/github/**
+      - .github/workflow/backend-github-deploy.yml
     branches:
       - master
       - Deploy-github-backend
