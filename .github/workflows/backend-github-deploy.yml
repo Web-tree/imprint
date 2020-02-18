@@ -20,12 +20,11 @@ jobs:
       uses: actions/setup-node@v1.1.0
       with:
         node-version: 12.x
-    - name: Install npm dependencies
+    - name: Install npm dependencies & serverless deploy
       working-directory: ./backend/github/
-      run: npm ci
-    - name: serverless deploy
       run: |
         npm i -g serverless
+        npm ci
         sls deploy --stage=prod --region=eu-central-1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.BACKEND_GITHUB_AWS_ACCESS_KEY_ID }}
