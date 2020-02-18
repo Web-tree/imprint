@@ -1,0 +1,30 @@
+name: Deploy github backend
+
+on:
+  push:
+    paths:
+      - backend/github/**
+      - .github/workflows/backend-github-deploy.yml
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.0.0
+
+    - name: npm install
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install npm dependencies & serverless deploy
+      working-directory: ./backend/github/
+      run: |
+        npm i -g serverless
+        npm ci
+        sls deploy --stage=prod --region=eu-central-1
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.BACKEND_GITHUB_AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.BACKEND_GITHUB_AWS_SECRET_ACCESS_KEY }}
