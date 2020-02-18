@@ -7,7 +7,6 @@ on:
       - .github/workflows/backend-github-deploy.yml
     branches:
       - master
-      - Deploy-github-backend
 
 jobs:
   deploy:
