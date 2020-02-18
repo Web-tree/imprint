@@ -1,10 +1,10 @@
-import {UserRepository} from '../repo/user-repository';
+import {UserDatasource} from '../repo/user-repository';
 import {ImprintResponse} from '../model/response/imprint';
 
 export class UserService {
 
     constructor(
-        private userRepository: UserRepository
+        private userRepository: UserDatasource
     ) {
 
     }
