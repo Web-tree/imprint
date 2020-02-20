@@ -1,5 +1,6 @@
 import {RepoDatasource} from './repo.datasource';
 import {ContributionStatistics} from '../model/contribution-statistics';
+import {OrgRepositories} from '../apollo/github-generated-model';
 
 describe('Repo Datasource', () => {
 
@@ -25,6 +26,17 @@ describe('Repo Datasource', () => {
             expect(stats[0].author).toBeDefined();
             expect(stats[0].author.login).toEqual('UdjinSkobelev');
             expect(stats[0].author.id).toEqual(43615914);
+            done();
+        });
+    });
+
+    it('should return list of repositories by organisation', (done) => {
+        const repos: Promise<OrgRepositories> = repoDatasource.getOrgRepositories();
+        expect(repos).toBeDefined();
+        repos.then(repos => {
+            expect(repos).toBeDefined();
+            expect(repos.organization.id).toEqual('MDEyOk9yZ2FuaXphdGlvbjQxMjM3NDA=');
+            expect(repos.organization.repositories.nodes.length).toBeGreaterThanOrEqual(10);
             done();
         });
     });

@@ -1,5 +1,5 @@
 export class RepoService {
-    getStatContribution() {
+    getOrgStatContribution() {
         
     }
 }

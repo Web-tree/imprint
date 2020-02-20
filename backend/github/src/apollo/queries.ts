@@ -22,3 +22,16 @@ query UserRepositories($login: String!) {
   }
 }
 `;
+export const GetOrgRepositories = gql`
+query OrgRepositories($login: String!) {
+  organization(login: $login) {
+    id
+    repositories(first: 100) {
+      nodes {
+        id
+        nameWithOwner
+      }
+    }
+  }
+}
+`;

@@ -1,10 +1,16 @@
 import {ContributionStatistics} from '../model/contribution-statistics';
 import * as request from 'request-promise-native';
+import {apolloClient} from '../apollo/client';
+import {ApolloClient} from 'apollo-client';
+import {NormalizedCacheObject} from 'apollo-boost';
+import {GetOrgRepositories} from '../apollo/queries';
+import {OrgRepositories} from '../apollo/github-generated-model';
 
 
 export class RepoDatasource {
 
-    constructor() {
+    constructor(private graphqlClient?: ApolloClient<NormalizedCacheObject>) {
+        this.graphqlClient = graphqlClient ? graphqlClient : apolloClient;
     }
 
     getContributionStatistics(nameWithOwner: string): Promise<ContributionStatistics[]> {
@@ -14,6 +20,17 @@ export class RepoDatasource {
                 'User-Agent': 'Webtree-Imprint'
             },
             json: true
+        });
+    }
+
+    getOrgRepositories(): Promise<OrgRepositories> {
+        return this.graphqlClient.query({
+            variables: {
+                login: 'web-tree'
+            },
+            query: GetOrgRepositories
+        }).then(value => {
+            return value.data;
         });
     }
 }
