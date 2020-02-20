@@ -1,10 +1,10 @@
-import {UserDatasource} from './user-datasource';
+import {UserDatasource} from './user.datasource';
 
 describe('User Datasource', () => {
 
     it('should return user repositories', (done) => {
-        const userRepository = new UserDatasource();
-        userRepository
+        const userDatasource = new UserDatasource();
+        userDatasource
             .getUserRepositories('max-levitskiy')
             // .getUserRepositories('cicd-webtree')
             .then(value => {

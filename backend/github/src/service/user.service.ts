@@ -1,4 +1,4 @@
-import {UserDatasource} from '../repo/user-repository';
+import {UserDatasource} from '../datasource/user.datasource';
 import {ImprintResponse} from '../model/response/imprint';
 
 export class UserService {

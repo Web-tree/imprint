@@ -1,6 +1,6 @@
 import {APIGatewayProxyHandler} from "aws-lambda";
-import {UserDatasource} from '../repo/user-repository';
-import {UserService} from '../service/user-service';
+import {UserDatasource} from '../datasource/user.datasource';
+import {UserService} from '../service/user.service';
 
 const userRepository = new UserDatasource();
 export const getRepositories: APIGatewayProxyHandler = (event, _context) => {
