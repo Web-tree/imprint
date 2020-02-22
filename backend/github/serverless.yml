@@ -37,3 +37,10 @@ functions:
           method: get
           path: user/{login}/imprint
           cors: true
+  getOrgStatContribution:
+    handler: src/handlers/repo.getOrgStatContribution
+    events:
+      - http:
+          method: get
+          path: org/{organisation}/stats
+          cors: true
