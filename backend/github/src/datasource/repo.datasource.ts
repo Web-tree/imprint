@@ -23,10 +23,10 @@ export class RepoDatasource {
         });
     }
 
-    getOrgRepositories(): Promise<OrgRepositories> {
+    getOrgRepositories(organisationName: string): Promise<OrgRepositories> {
         return this.graphqlClient.query({
             variables: {
-                login: 'web-tree'
+                login: organisationName
             },
             query: GetOrgRepositories
         }).then(value => {

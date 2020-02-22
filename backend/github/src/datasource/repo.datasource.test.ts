@@ -31,7 +31,7 @@ describe('Repo Datasource', () => {
     });
 
     it('should return list of repositories by organisation', (done) => {
-        const repos: Promise<OrgRepositories> = repoDatasource.getOrgRepositories();
+        const repos: Promise<OrgRepositories> = repoDatasource.getOrgRepositories('web-tree');
         expect(repos).toBeDefined();
         repos.then(repos => {
             expect(repos).toBeDefined();
