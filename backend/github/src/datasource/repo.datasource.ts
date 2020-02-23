@@ -14,10 +14,12 @@ export class RepoDatasource {
     }
 
     getContributionStatistics(nameWithOwner: string): Promise<ContributionStatistics[]> {
+        console.log('Called getContributionStatistics for repository', nameWithOwner);
         return request.get({
             uri: `https://api.github.com/repos/${nameWithOwner}/stats/contributors`,
             headers: {
-                'User-Agent': 'Webtree-Imprint'
+                'User-Agent': 'Webtree-Imprint',
+                'authorization': 'Bearer ' + process.env.GITHUB_API_KEY
             },
             json: true
         });

@@ -86,6 +86,22 @@ export interface UserRepositoriesVariables {
 // GraphQL query operation: OrgRepositories
 // ====================================================
 
+export interface OrgRepositories_organization_repositories_nodes_stargazers {
+  __typename: "StargazerConnection";
+  /**
+   * Identifies the total count of items in the connection.
+   */
+  totalCount: number;
+}
+
+export interface OrgRepositories_organization_repositories_nodes_watchers {
+  __typename: "UserConnection";
+  /**
+   * Identifies the total count of items in the connection.
+   */
+  totalCount: number;
+}
+
 export interface OrgRepositories_organization_repositories_nodes {
   __typename: "Repository";
   id: string;
@@ -93,6 +109,22 @@ export interface OrgRepositories_organization_repositories_nodes {
    * The repository's name with owner.
    */
   nameWithOwner: string;
+  /**
+   * Identifies if the repository is a fork.
+   */
+  isFork: boolean;
+  /**
+   * Returns how many forks there are of this repository in the whole network.
+   */
+  forkCount: number;
+  /**
+   * A list of users who have starred this starrable.
+   */
+  stargazers: OrgRepositories_organization_repositories_nodes_stargazers;
+  /**
+   * A list of users watching the repository.
+   */
+  watchers: OrgRepositories_organization_repositories_nodes_watchers;
 }
 
 export interface OrgRepositories_organization_repositories {

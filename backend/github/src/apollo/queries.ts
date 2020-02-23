@@ -16,7 +16,6 @@ query UserRepositories($login: String!) {
           totalCount
         }
         isFork
-        forkCount
       }
     }
   }
@@ -30,6 +29,14 @@ query OrgRepositories($login: String!) {
       nodes {
         id
         nameWithOwner
+        isFork
+        forkCount
+        stargazers {
+          totalCount
+        }
+        watchers {
+          totalCount
+        }
       }
     }
   }
