@@ -16,7 +16,7 @@ export class UserService {
                 imprint += repo.forkCount + repo.stargazers.totalCount + repo.watchers.totalCount;
             }
             return <ImprintResponse>{
-                imprint: imprint,
+                value: imprint,
                 calculatedPercent: 100,
                 algorithmVersion: "alfa"
             };
