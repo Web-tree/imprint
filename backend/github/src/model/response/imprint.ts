@@ -1,5 +1,5 @@
 export interface ImprintResponse {
-    imprint: number
+    value: number
     calculatedPercent: number
     algorithmVersion: string
 }
