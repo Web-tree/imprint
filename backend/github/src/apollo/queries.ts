@@ -16,7 +16,27 @@ query UserRepositories($login: String!) {
           totalCount
         }
         isFork
+      }
+    }
+  }
+}
+`;
+export const GetOrgRepositories = gql`
+query OrgRepositories($login: String!) {
+  organization(login: $login) {
+    id
+    repositories(first: 100) {
+      nodes {
+        id
+        nameWithOwner
+        isFork
         forkCount
+        stargazers {
+          totalCount
+        }
+        watchers {
+          totalCount
+        }
       }
     }
   }

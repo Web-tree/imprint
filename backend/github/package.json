@@ -8,8 +8,11 @@
     "gen-types": "apollo client:codegen ./src/apollo/github-generated-model.ts --outputFlat --includes=./src/**/queries.ts --addTypename --localSchemaFile=./resources/schema.json --target=typescript"
   },
   "dependencies": {
+    "@types/request-promise-native": "^1.0.17",
     "apollo-boost": "^0.4.7",
     "graphql": "^14.5.8",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8",
     "serverless": "^1.63.0",
     "source-map-support": "^0.5.10"
   },

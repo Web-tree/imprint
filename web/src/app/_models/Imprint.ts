@@ -1,5 +1,5 @@
-export interface Imprint {
-  imprint: number
-  calculatedPercent: number
-  algorithmVersion: string
+export class Imprint {
+  value: number = 0;
+  calculatedPercent?: number = 100;
+  algorithmVersion?: string = 'alfa';
 }

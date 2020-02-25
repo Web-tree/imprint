@@ -82,6 +82,83 @@ export interface UserRepositoriesVariables {
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL query operation: OrgRepositories
+// ====================================================
+
+export interface OrgRepositories_organization_repositories_nodes_stargazers {
+  __typename: "StargazerConnection";
+  /**
+   * Identifies the total count of items in the connection.
+   */
+  totalCount: number;
+}
+
+export interface OrgRepositories_organization_repositories_nodes_watchers {
+  __typename: "UserConnection";
+  /**
+   * Identifies the total count of items in the connection.
+   */
+  totalCount: number;
+}
+
+export interface OrgRepositories_organization_repositories_nodes {
+  __typename: "Repository";
+  id: string;
+  /**
+   * The repository's name with owner.
+   */
+  nameWithOwner: string;
+  /**
+   * Identifies if the repository is a fork.
+   */
+  isFork: boolean;
+  /**
+   * Returns how many forks there are of this repository in the whole network.
+   */
+  forkCount: number;
+  /**
+   * A list of users who have starred this starrable.
+   */
+  stargazers: OrgRepositories_organization_repositories_nodes_stargazers;
+  /**
+   * A list of users watching the repository.
+   */
+  watchers: OrgRepositories_organization_repositories_nodes_watchers;
+}
+
+export interface OrgRepositories_organization_repositories {
+  __typename: "RepositoryConnection";
+  /**
+   * A list of nodes.
+   */
+  nodes: (OrgRepositories_organization_repositories_nodes | null)[] | null;
+}
+
+export interface OrgRepositories_organization {
+  __typename: "Organization";
+  id: string;
+  /**
+   * A list of repositories that the user owns.
+   */
+  repositories: OrgRepositories_organization_repositories;
+}
+
+export interface OrgRepositories {
+  /**
+   * Lookup a organization by login.
+   */
+  organization: OrgRepositories_organization | null;
+}
+
+export interface OrgRepositoriesVariables {
+  login: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
