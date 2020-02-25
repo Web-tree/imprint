@@ -32,7 +32,7 @@ describe('Repo Service', () => {
         });
     });
 
-    it('should call real api successfully', (done) => {
+    xit('should call real api successfully', (done) => {
         repoService.getOrgStatContribution('web-tree').then(value => {
             expect(value).toBeDefined();
             done();
