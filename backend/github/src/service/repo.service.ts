@@ -97,6 +97,7 @@ export class RepoService {
             let commitsSum = 0;
             statCalcPromises.push(contributionStatsPromise.then(contributionStatistics => {
                     if (contributionStatistics) {
+                        console.log(contributionStatistics);
                         contributionStatistics.forEach(stat => {
                             stat.weeks.forEach(week => {
                                 repoSize += (week.a - week.d);
