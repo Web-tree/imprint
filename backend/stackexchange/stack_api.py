@@ -40,6 +40,6 @@ class UserData:
 
 
 # u1 = UserData('1279574;200291')
-u1 = UserData('200291')
+u1 = UserData('2335489')
 
-print(u1.user_name())
+u1.print_data(u1.user_info())
