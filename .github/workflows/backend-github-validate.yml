@@ -1,6 +1,10 @@
 name: backend-github-validate
 
-on: [push]
+on:
+  push:
+    paths:
+      - backend/github/**
+      - .github/workflows/backend-github-validate.yml
 
 jobs:
   build:
