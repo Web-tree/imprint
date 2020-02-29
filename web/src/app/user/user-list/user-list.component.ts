@@ -16,7 +16,9 @@ export class UserListComponent implements OnInit {
   constructor(private imprintService: ImprintService) { }
 
   ngOnInit() {
-    this.imprintMap = this.imprintService.getUsersImprint(this.usernames);
+    if (this.usernames) {
+      this.imprintMap = this.imprintService.getUsersImprint(this.usernames);
+    }
   }
 
 }
