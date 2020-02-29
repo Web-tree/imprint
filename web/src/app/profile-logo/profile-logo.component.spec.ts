@@ -57,13 +57,13 @@ describe('ProfileLogoComponent', () => {
       const loginButton = getLoginButton();
       expect(loginButton).toBeTruthy();
       expect(loginButton.nativeElement.textContent).toEqual('Login');
-      expect(loginButton.nativeElement.getAttribute('href')).toEqual(environment.authUrl + '/login?returnUnion=mydata');
+      expect(loginButton.nativeElement.getAttribute('href')).toEqual(environment.authUrl + '/login?returnUnion=imprint');
     });
     it('should contain register button', () => {
       const registerButton = getRegisterButton();
       expect(registerButton).toBeTruthy();
       expect(registerButton.nativeElement.textContent).toEqual('Register');
-      expect(registerButton.nativeElement.getAttribute('href')).toEqual(environment.authUrl + '/register?returnUnion=mydata');
+      expect(registerButton.nativeElement.getAttribute('href')).toEqual(environment.authUrl + '/register?returnUnion=imprint');
     });
   });
   describe('when logged in', () => {

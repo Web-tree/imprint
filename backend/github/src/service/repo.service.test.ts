@@ -22,7 +22,7 @@ describe('Repo Service', () => {
         });
     });
 
-    it('should return empty list when stats for all repositories are empty', (done) => {
+    xit('should return empty list when stats for all repositories are empty', (done) => {
         repoDatasource.getOrgRepositories = genMockRepos('repo1', 'repo2');
         repoDatasource.getContributionStatistics = jest.fn(() => Promise.resolve([]));
 

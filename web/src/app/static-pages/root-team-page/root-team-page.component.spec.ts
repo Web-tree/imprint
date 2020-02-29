@@ -1,6 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RootTeamPageComponent } from './root-team-page.component';
+import {RootTeamPageComponent} from './root-team-page.component';
+import {UserListComponent} from '../../user/user-list/user-list.component';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('RootTeamPageComponent', () => {
   let component: RootTeamPageComponent;
@@ -8,9 +12,17 @@ describe('RootTeamPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RootTeamPageComponent ]
+      imports: [
+        MatListModule,
+        MatBadgeModule,
+        HttpClientModule
+      ],
+      declarations: [
+        RootTeamPageComponent,
+        UserListComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
