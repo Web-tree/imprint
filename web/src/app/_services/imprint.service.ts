@@ -16,7 +16,10 @@ export class ImprintService {
   getUsersImprint(usernames: string[]): Map<string, Promise<number>> {
     const results = new Map<string, Promise<number>>();
     usernames.forEach(username => {
-      const imprintPromise = this.http.get<Imprint>(`${environment.githubBackUrl}/user/${username}/imprint`).toPromise().then(imprint => imprint.value);
+      const imprintPromise = this.http
+        .get<Imprint>(`${environment.githubBackUrl}/user/${username}/imprint`)
+        .toPromise()
+        .then(imprint => imprint.value);
       results.set(username, imprintPromise);
     });
     return results;

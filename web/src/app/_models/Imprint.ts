@@ -1,5 +1,5 @@
 export class Imprint {
-  value: number = 0;
-  calculatedPercent?: number = 100;
-  algorithmVersion?: string = 'alfa';
+  value = 0;
+  calculatedPercent ? = 100;
+  algorithmVersion ? = 'alfa';
 }
