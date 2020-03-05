@@ -69,8 +69,14 @@ class UserDataFromJSON:
         self.profile_image = self.items[0].get('profile_image')
         self.display_name = self.items[0].get('display_name')
 
+
 assert type(test_user.data) == dict
 assert len(test_user.data) == 7
 
+# from_dict function populates dataclass with dict key:value's
 test_user_dataclass = from_dict(data_class=UserDataFromJSON, data=test_user.data)
 print(test_user_dataclass.reputation)
+
+# todo: verify required data from api response
+# todo: create unittest for classes UserDataFromJSON & ApiResponse
+# todo: add multi id handling '2335489;2335149;2335239'
