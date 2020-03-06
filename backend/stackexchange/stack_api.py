@@ -1,10 +1,6 @@
-from datetime import datetime
 from stackapi import StackAPI
-from stackapi import StackAPIError
 import json
 from dataclasses import dataclass
-# from dataclasses import make_dataclass
-# from dataclasses_json import dataclass_json
 from dacite import from_dict
 
 
@@ -26,57 +22,49 @@ class ApiResponse:
         self.order = order
         self.sort = sort
         self.api_url = f'users/{user_id}'
-        self.data = self.site.fetch(self.api_url, order=self.order, sort=self.sort)
+        self.data_all = self.site.fetch(self.api_url, order=self.order, sort=self.sort)
 
     def print_api_response_json(self):
-        print(json.dumps(self.data, indent=4))
+        print(json.dumps(self.data_all, indent=4))
+
+    @property
+    def data_specific_values(self):
+        # Pull all values of specified key from nested JSON.
+        # Keys list can be extended in future if more JSON properties required
+        keys = ["reputation", "account_id", "user_id", "link", "display_name"]
+        arr = {}
+
+        def extract(obj, arr, key):
+            # Recursively search for values of key in JSON tree.
+            if isinstance(obj, dict):
+                for k, v in obj.items():
+                    if isinstance(v, (dict, list)):
+                        extract(v, arr, key)
+                    elif k in keys:
+                        arr.update({k: v})
+            elif isinstance(obj, list):
+                for item in obj:
+                    extract(item, arr, key)
+            return arr
+
+        results = extract(self.data_all, arr, keys)
+        return results
+
+
+@dataclass
+class User:
+    account_id: int
+    user_id: int
+    reputation: int
+    link: str
+    display_name: str
 
 
 test_user = ApiResponse('stackoverflow', '2335489')
 
-
-# test_user.print_api_response_json()
-
-
-@dataclass
-class UserDataFromJSON:
-    backoff: int
-    has_more: bool
-    page: int
-    quota_max: int
-    quota_remaining: int
-    total: int
-    items: list
-
-    def __post_init__(self):
-        self.badge_counts = self.items[0].get('badge_counts')
-        self.account_id = self.items[0].get('account_id')
-        self.is_employee = self.items[0].get('is_employee')
-        self.last_modified_date = self.items[0].get('last_modified_date')
-        self.last_access_date = self.items[0].get('last_access_date')
-        self.reputation_change_year = self.items[0].get('reputation_change_year')
-        self.reputation_change_quarter = self.items[0].get('reputation_change_quarter')
-        self.reputation_change_month = self.items[0].get('reputation_change_month')
-        self.reputation_change_week = self.items[0].get('reputation_change_week')
-        self.reputation_change_day = self.items[0].get('reputation_change_day')
-        self.reputation = self.items[0].get('reputation')
-        self.creation_date = self.items[0].get('creation_date')
-        self.user_type = self.items[0].get('user_type')
-        self.user_id = self.items[0].get('user_id')
-        self.location = self.items[0].get('location')
-        self.website_url = self.items[0].get('website_url')
-        self.link = self.items[0].get('link')
-        self.profile_image = self.items[0].get('profile_image')
-        self.display_name = self.items[0].get('display_name')
-
-
-assert type(test_user.data) == dict
-assert len(test_user.data) == 7
-
 # from_dict function populates dataclass with dict key:value's
-test_user_dataclass = from_dict(data_class=UserDataFromJSON, data=test_user.data)
+test_user_dataclass = from_dict(data_class=User, data=test_user.data_specific_values)
 print(test_user_dataclass.reputation)
 
-# todo: verify required data from api response
 # todo: create unittest for classes UserDataFromJSON & ApiResponse
 # todo: add multi id handling '2335489;2335149;2335239'
