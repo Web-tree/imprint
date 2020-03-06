@@ -18,14 +18,14 @@ class ApiResponse:
     This method returns a list of users. """
 
     def __init__(self, site: str, user_id: str, order: str = 'desc', sort: str = 'name') -> None:
-        self.site = StackAPI(site)
+        self._site = StackAPI(site)
         self.order = order
         self.sort = sort
-        self.api_url = f'users/{user_id}'
-        self.data_all = self.site.fetch(self.api_url, order=self.order, sort=self.sort)
+        self._api_url = f'users/{user_id}'
+        self._data_all = self._site.fetch(self._api_url, order=self.order, sort=self.sort)
 
     def print_api_response_json(self):
-        print(json.dumps(self.data_all, indent=4))
+        print(json.dumps(self._data_all, indent=4))
 
     @property
     def data_specific_values(self):
@@ -47,7 +47,7 @@ class ApiResponse:
                     extract(item, arr, key)
             return arr
 
-        results = extract(self.data_all, arr, keys)
+        results = extract(self._data_all, arr, keys)
         return results
 
 
@@ -63,8 +63,9 @@ class User:
 test_user = ApiResponse('stackoverflow', '2335489')
 
 # from_dict function populates dataclass with dict key:value's
-test_user_dataclass = from_dict(data_class=User, data=test_user.data_specific_values)
-print(test_user_dataclass.reputation)
+# test_user_dataclass = from_dict(data_class=User, data=test_user.data_specific_values)
+# print(test_user_dataclass.reputation)
+
 
 # todo: create unittest for classes UserDataFromJSON & ApiResponse
 # todo: add multi id handling '2335489;2335149;2335239'
