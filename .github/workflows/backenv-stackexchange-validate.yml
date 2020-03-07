@@ -5,7 +5,7 @@ name: Python package
 
 on:
   push:
-    paths: 
+    paths:
     - .github/workflows/backenv-stackexchange-validate.yml
     - backend/stackexchange/**
 
@@ -20,14 +20,10 @@ jobs:
       with:
         python-version: 3.8
     - name: Install dependencies
-      working-directory: backend/stackexchange/
       run: |
-        python3.8 -V
-        python3.8 -m pip install --upgrade pip
-        pip3.8 install pipenv
-        pipenv install
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Lint with flake8
-      working-directory: backend/stackexchange/
       run: |
         pip install flake8
         # stop the build if there are Python syntax errors or undefined names
@@ -35,6 +31,6 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
-      working-directory: backend/stackexchange/
       run: |
-        pipenv run pytest
+        pip install pytest
+        pytest
