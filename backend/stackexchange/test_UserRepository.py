@@ -1,5 +1,5 @@
 import unittest
-from UserRepository import *
+from backend.stackexchange.UserRepository import *
 
 '''
 Test data:
