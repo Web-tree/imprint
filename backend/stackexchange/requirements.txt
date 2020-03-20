@@ -1,0 +1,3 @@
+dacite==1.2.1
+dataclasses==0.7
+StackAPI==0.1.12
