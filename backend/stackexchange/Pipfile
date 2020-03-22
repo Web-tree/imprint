@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 stackapi = "*"
 dacite = "*"
+dataclasses = "*"
 
 [requires]
 python_version = "3.6"
