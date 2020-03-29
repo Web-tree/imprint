@@ -1,6 +1,7 @@
 from stackapi import StackAPI
 from dacite import from_dict
-from User import *
+
+from User import User
 
 
 class UserRepository:
@@ -19,6 +20,8 @@ class UserRepository:
     def __init__(self, site: str) -> None:
         self.__site = StackAPI(site)
 
-    def get_user(self, user_id: str):
+    def get_user(self, user_id: str) -> User:
         api_url = f'users/{user_id}'
-        return from_dict(data_class=User, data=self.__site.fetch(api_url)['items'][0])
+        users = self.__site.fetch(api_url)
+        print(users)
+        return from_dict(data_class=User, data=users['items'][0])
