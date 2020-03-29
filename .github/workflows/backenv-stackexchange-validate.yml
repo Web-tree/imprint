@@ -18,13 +18,13 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
-        python-version: 3.6
+        python-version: 3.8
     - name: Install dependencies
       working-directory: backend/stackexchange/
       run: |
-        python3.6 -V
-        python3.6 -m pip install --upgrade pip
-        pip3.6 install pipenv
+        python3.8 -V
+        python3.8 -m pip install --upgrade pip
+        pip3.8 install pipenv
         pipenv install
     - name: Lint with flake8
       working-directory: backend/stackexchange/
