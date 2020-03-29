@@ -22,9 +22,10 @@ jobs:
     - name: Install dependencies
       working-directory: backend/stackexchange/
       run: |
-        python3 -m pip install --upgrade pip
-        pip install pipenv
-        pipenv install -e .
+        python3.6 -V
+        python3.6 -m pip install --upgrade pip
+        pip3.6 install pipenv
+        pipenv install
     - name: Lint with flake8
       working-directory: backend/stackexchange/
       run: |
