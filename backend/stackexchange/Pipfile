@@ -4,11 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 stackapi = "*"
 dacite = "*"
 dataclasses = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.6"
