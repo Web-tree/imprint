@@ -18,13 +18,15 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import {ImprintService} from './_services/imprint.service';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
+import { GithubOrganisationPageComponent } from './github/github-organisation-page/github-organisation-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileLogoComponent,
     RootTeamPageComponent,
-    UserListComponent
+    UserListComponent,
+    GithubOrganisationPageComponent
   ],
   imports: [
     BrowserModule,

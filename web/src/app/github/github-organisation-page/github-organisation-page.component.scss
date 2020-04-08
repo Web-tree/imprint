@@ -1,0 +1,20 @@
+.avatar {
+  border-radius: 50%;
+  display: block;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mat-list-item {
+  height: 70px !important;
+}
+.mat-badge-content {
+  width: auto;
+  display: grid;
+  min-width: 32px;
+  min-height: 28px;
+  text-align: center;
+  align-items: center;
+  padding: 5px 3px;
+  top: -20px;
+  right: -70px !important;
+}

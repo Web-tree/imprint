@@ -1,0 +1,6 @@
+<mat-list *ngIf="orgStats">
+  <mat-list-item *ngFor="let stat of orgStats">
+    <img class="avatar" src="https://github.com/{{stat.name}}.png?size=56" width="56" height="56" alt=""/>
+    <span matBadge="{{stat.imprint.value}}" matBadgeOverlap="false">{{stat.name}}</span>
+  </mat-list-item>
+</mat-list>
