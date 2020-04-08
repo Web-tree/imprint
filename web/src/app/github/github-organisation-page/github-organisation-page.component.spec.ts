@@ -7,6 +7,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import {ActivatedRoute, convertToParamMap, RouterModule} from '@angular/router';
 import {Observable} from 'rxjs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 describe('GithubOrganisationPageComponent', () => {
   let component: GithubOrganisationPageComponent;
@@ -21,6 +22,7 @@ describe('GithubOrganisationPageComponent', () => {
       imports: [
         MatBadgeModule,
         MatListModule,
+        MatProgressSpinnerModule,
         RouterModule.forRoot([]),
         HttpClientTestingModule
       ]

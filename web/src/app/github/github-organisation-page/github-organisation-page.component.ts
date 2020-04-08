@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class GithubOrganisationPageComponent implements OnInit {
   orgStats: GithubOrganisationStats[];
+  loading = true;
 
   constructor(
     private githubService: GithubService,
@@ -18,6 +19,9 @@ export class GithubOrganisationPageComponent implements OnInit {
 
   ngOnInit() {
     const organisationName = this.router.snapshot.params.organisation;
-    this.githubService.fetchOrganisationStats(organisationName).then(orgStats => this.orgStats = orgStats);
+    this.githubService.fetchOrganisationStats(organisationName).then(orgStats => {
+      this.orgStats = orgStats;
+      this.loading = false;
+    });
   }
 }
