@@ -19,6 +19,7 @@ import {ImprintService} from './_services/imprint.service';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import { GithubOrganisationPageComponent } from './github/github-organisation-page/github-organisation-page.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GithubOrganisationPageComponent } from './github/github-organisation-pa
     MatMenuModule,
     MatButtonModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     TokenService,
