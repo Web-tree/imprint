@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {RootTeamPageComponent} from './static-pages/root-team-page/root-team-page.component';
 import {GithubOrganisationStats} from './_models/github-organisation-stats';
 import {GithubOrganisationPageComponent} from './github/github-organisation-page/github-organisation-page.component';
-import {ApplyTokenComponent} from "./apply-token/apply-token.component";
+import {ApplyTokenComponent} from './apply-token/apply-token.component';
 
 
 const routes: Routes = [

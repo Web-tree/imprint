@@ -4,7 +4,7 @@ import {HttpParams} from '@angular/common/http';
 import {TokenService} from '../_services/token.service';
 
 @Component({
-  selector: 'app-apply-token',
+  selector: 'imprint-app-apply-token',
   templateUrl: './apply-token.component.html',
   styleUrls: ['./apply-token.component.scss']
 })
