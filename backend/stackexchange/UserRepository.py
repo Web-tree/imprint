@@ -23,5 +23,4 @@ class UserRepository:
     def get_user(self, user_id: str) -> User:
         api_url = f'users/{user_id}'
         users = self.__site.fetch(api_url)
-        print(users)
         return from_dict(data_class=User, data=users['items'][0])
