@@ -9,7 +9,7 @@ service: imprint-backend-stackexchange
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.6
   stage: dev
   region: eu-central-1
 
@@ -32,7 +32,16 @@ provider:
 # you can define service wide environment variables here
 #  environment:
 #    variable1: value1
-
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - .idea/**
+    - .pytest_cache/**
+    - package.json
+    - ./*.iml
+    - ./*test_*.py
 # you can add packaging information here
 #package:
 #  include:
@@ -96,3 +105,7 @@ functions:
 
 plugins:
   - serverless-python-requirements
+
+#custom:
+#  pythonRequirements:
+#    layer: true

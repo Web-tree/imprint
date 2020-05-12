@@ -10,7 +10,6 @@ pytest = "*"
 stackapi = "*"
 dacite = "*"
 dataclasses = "*"
-pytest = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.6"
