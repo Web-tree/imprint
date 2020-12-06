@@ -20,8 +20,8 @@ export class RepoService {
             const repoImprint: Map<string, number> = new Map();
             for (let repositoriesKey in orgs.organization.repositories.nodes) {
                 const repo = orgs.organization.repositories.nodes[repositoriesKey];
-                let name = repo.nameWithOwner;
                 if (!repo.isFork) {
+                    let name = repo.nameWithOwner;
                     statPromises.set(name, this.repoDatasource.getContributionStatistics(name));
                     repoSizePerRepoPerWeek.set(name, new Map());
                     userStatPerRepoPerWeek.set(name, new Map());
@@ -50,7 +50,11 @@ export class RepoService {
         });
     }
 
-    private calcUserStats(statPromises: Map<string, Promise<ContributionStatistics[]>>, userStatPerRepoPerWeek: Map<string, Map<string, Map<number, User>>>, repoSizePerRepoPerWeek: Map<string, Map<number, RepoSize>>, repoImprint: Map<string, number>) {
+    private calcUserStats(
+        statPromises: Map<string, Promise<ContributionStatistics[]>>,
+        userStatPerRepoPerWeek: Map<string, Map<string, Map<number, User>>>,
+        repoSizePerRepoPerWeek: Map<string, Map<number, RepoSize>>, repoImprint: Map<string, number>
+    ) {
         const statCalcPromises: Promise<null>[] = [];
         statPromises.forEach((contributionStatsPromise, repoName) => {
             contributionStatsPromise.then(contributionStatistics => {
@@ -60,13 +64,13 @@ export class RepoService {
                                 if (!userStatPerRepoPerWeek.get(repoName).has(stat.author.login)) {
                                     userStatPerRepoPerWeek.get(repoName).set(stat.author.login, new Map());
                                 }
-                                let userStat = userStatPerRepoPerWeek.get(repoName).get(stat.author.login);
+                                const userStat = userStatPerRepoPerWeek.get(repoName).get(stat.author.login);
 
                                 if (!userStat.has(userWeek.w)) {
                                     userStat.set(userWeek.w, {imprint: {value: 0}, name: stat.author.login})
                                 }
-                                let user = userStat.get(userWeek.w);
-                                let repoSize = repoSizePerRepoPerWeek.get(repoName).get(userWeek.w);
+                                const user = userStat.get(userWeek.w);
+                                const repoSize = repoSizePerRepoPerWeek.get(repoName).get(userWeek.w);
                                 const commitImprint = this.calcWeekPartImprint(userWeek.c, repoSize.commitsAmount, this._commitMultiplier);
                                 const addedLinesImprint = this.calcWeekPartImprint(userWeek.a, repoSize.size, this._addedLineMultiplier);
                                 const deletedLinesImprint = this.calcWeekPartImprint(userWeek.d, repoSize.size, this._deleteMultiplier);
