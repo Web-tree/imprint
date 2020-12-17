@@ -19,11 +19,13 @@ import {ImprintService} from './_services/imprint.service';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import { GithubOrganisationPageComponent } from './github/github-organisation-page/github-organisation-page.component';
+import {ApplyTokenComponent} from './apply-token/apply-token.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ApplyTokenComponent,
     ProfileLogoComponent,
     RootTeamPageComponent,
     UserListComponent,
